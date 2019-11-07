@@ -17,6 +17,7 @@ var app = new Vue({
         async loadJson() {
             try {
                 const response = await axios.get(this.url + "api?args=" + this.numInput + "/" + this.selection);
+                console.log(response);
                 this.fact = response.data.text;
             } catch (error) {
                 console.log(error);

@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const axios = require('axios');
 
 const app = express();
 //const url = "http://numbersapi.com/random/year?json"
@@ -17,13 +16,19 @@ app.use(bodyParser.json());
 
 app.use(express.static('public'))
 
-app.get('/api', (req, res) => {
-  console.log("get called with arguments: " + req.query.args);
-  let args = req.query.args;
+const axios = require('axios');
 
-  //ERROR WITH AXIOS...not sure what the problem is
-  //const json = await axios.get(url + args + "?json");
-  //res.send(json);
+app.get('/api', async (req, res) => {
+  try {
+    console.log("get called with arguments: " + req.query.args);
+    let args = req.query.args;
+  
+    const json = await axios.get(url + args + "?json");
+    console.log(json.data);
+    res.send(json.data);
+  } catch(error) {
+    console.log("no response from api...\n" + error);
+  }  
 });
 
 
