@@ -18,8 +18,26 @@
       <option value="trivia">Trivia</option>
     </select>
     <br>
-    <h2>Enter a number
+    <div  v-show="selection !== 'date'">
+      <h2>Enter a number
       <input type="text" v-model="numInput" v-bind:disabled="isRandom ? true : false">
+      </h2>
+    </div>
+    <div v-show="selection === 'date'">
+      <h2>Enter a date
+      <select v-model="month" v-bind:disabled="isRandom ? true : false">
+        <option disabled value="">Select Month</option>
+        <option  v-for="(month, index) in months" v-bind:value="index + 1">{{month}}</option>
+      </select>
+       / 
+      <select v-model="day" v-bind:disabled="isRandom ? true : false">
+        <option disabled value="">Select Day</option>
+        <option  v-for="day in days" v-bind:value="day">{{day}}</option>
+      </select>
+      </h2>
+    </div>
+      
+    <h2>
       OR get random fact 
       <input type="checkbox" v-model="isRandom">
     </h2>
