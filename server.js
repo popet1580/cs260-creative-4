@@ -28,6 +28,9 @@ app.get('/api', async (req, res) => {
     res.send(json.data);
   } catch(error) {
     console.log("no response from api...\n" + error);
+    res.status(404)
+      .send("Sorry, that doesn't exist");
+    return;
   }  
 });
 

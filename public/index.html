@@ -3,22 +3,30 @@
 
 <head>
   <meta charset="utf-8" />
-  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="styles.css" />
   <title>Vue Todo</title>
 </head>
 
 <body>
   <div id="app">
-    <select v-on:change="changedSelection" v-model="selection">
+    <h2>Pick one: </h2>
+    <select v-model="selection">
+      <option disabled value="">Please select one</option>
       <option value="math">Math</option>
       <option value="date">Date</option>
-      <option value="year">Trivia</option>
+      <option value="year">Year</option>
       <option value="trivia">Trivia</option>
     </select>
-    <input type="text" v-model="numInput">
-    
+    <br>
+    <h2>Enter a number
+      <input type="text" v-model="numInput" v-bind:disabled="isRandom ? true : false">
+      OR get random fact 
+      <input type="checkbox" v-model="isRandom">
+    </h2>
+    <button type="submit" v-on:click.prevent="submitRequest">Go</button>
+    <h4 id="errorMessage">{{errorMessage}}</h4>
     <p>{{fact}}</p>
+    
     
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
