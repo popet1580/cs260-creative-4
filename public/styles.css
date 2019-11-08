@@ -1,3 +1,21 @@
+body {
+    text-align: center;
+    background-color: #cfcfff;
+    font-family: "Courier New", Courier, monospace;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+select {
+    font-family: "Courier New", Courier, monospace
+}
+
+option {
+    font-family: "Courier New", Courier, monospace;
+}
+
 #errorMessage {
     color: red;
     
