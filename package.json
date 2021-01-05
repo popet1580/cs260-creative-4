@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/popet1580/cs260-creative-4#readme",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "express": "^4.17.1"
   }
 }
